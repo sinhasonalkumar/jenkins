@@ -1,4 +1,7 @@
+import com.sonal.jenkins.LogUtils
+
 def call(body) {
+    def logUtils = new LogUtils()
     // evaluate the body block, and collect configuration into the object
     def pipelineParams= [:]
     body.resolveStrategy = Closure.DELEGATE_FIRST
@@ -17,7 +20,7 @@ def call(body) {
                 //gitUtils('https://github.com/sinhasonalkumar/microservices.git')
                 //gitUtils(pipelineParams.sourceRepoURL)
                  script{
-                     buildUtils.mavenBuild(' clean package')
+                     //buildUtils.mavenBuild(' clean package')
                  }    
 
             }
