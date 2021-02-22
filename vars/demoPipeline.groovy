@@ -6,8 +6,13 @@ def call(body) {
     body()
 
    pipeline{
+    
     agent any
     
+    libraries {
+     lib('shared-library')
+    }
+
     stages{
         
         stage("checkout"){
@@ -15,6 +20,7 @@ def call(body) {
             steps{
                 //gitUtils('https://github.com/sinhasonalkumar/microservices.git')
                 gitUtils(pipelineParams.sourceRepoURL)
+                com.sonal.jenkins.logUntils.info(" loading files from src folder")
             }
         }
     }
