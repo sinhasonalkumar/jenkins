@@ -16,10 +16,15 @@ def call(body) {
             steps{
                 //gitUtils('https://github.com/sinhasonalkumar/microservices.git')
                 gitUtils(pipelineParams.sourceRepoURL)
+            }
+        }
+
+        stage("log"){
+            
+            steps{
                 script{
                     logUtils.info(' checking code re-usability')    
                 }
-                
             }
         }
     }
