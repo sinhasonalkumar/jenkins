@@ -11,6 +11,12 @@ def call(body) {
     
     node {
         
-        logUtils.infoWithStage("Testing Scripted Pipeline")
+        stage("Maven Build"){
+             buildUtils.mavenBuild(' clean package')
+        }
+
+        stage("Log"){
+            logUtils.info("Testing Scripted Pipeline")
+        }
     }
 }
