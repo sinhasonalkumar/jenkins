@@ -8,6 +8,9 @@ def call(body) {
     def gitUtils = new GitUtils()
     // evaluate the body block, and collect configuration into the object
     def pipelineParams= [:]
+    body.resolveStrategy = Closure.DELEGATE_FIRST
+    body.delegate = pipelineParams
+    body()
     
     node {
 
@@ -20,6 +23,10 @@ def call(body) {
             logUtils.info("Testing Scripted Pipeline")
         }
         */
+
+        withStage("Git Checkout") {
+            gitUtils.checkout(pipelineParams.sourceRepoURL)
+        }
 
         withStage("Maven Build") {
             buildUtils.mavenBuild(' clean package')
