@@ -9,11 +9,14 @@ def call(body) {
     // evaluate the body block, and collect configuration into the object
     def pipelineParams= [:]
     
-    node(any) {
+    node {
         
-        stage{
-            logUtils.info("Testing Declarative Pipeline")
+        stage("Maven Build"){
+             buildUtils.mavenBuild(' clean package')
         }
-        
+
+        stage("Log"){
+            logUtils.info("Testing Scripted Pipeline")
+        }
     }
 }
