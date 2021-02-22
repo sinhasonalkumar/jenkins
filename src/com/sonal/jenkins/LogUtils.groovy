@@ -1,4 +1,5 @@
 package com.sonal.jenkins
+
 def info(message){
    echo "INFO: ${message}"
 } 
