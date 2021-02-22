@@ -23,7 +23,7 @@ def call(body) {
             
             steps{
                 script{
-                    logUtils.info(' checking code re-usability')    
+                    logUtils.info(' successfully executed pipeline')    
                 }
             }
         }
