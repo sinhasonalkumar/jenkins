@@ -8,10 +8,6 @@ def call(body) {
    pipeline{
     
     agent any
-    
-    libraries {
-     lib('shared-library')
-    }
 
     stages{
         
@@ -19,9 +15,11 @@ def call(body) {
             
             steps{
                 //gitUtils('https://github.com/sinhasonalkumar/microservices.git')
-                //gitUtils(pipelineParams.sourceRepoURL)
-                def logger = new Logger()
-                logger.info(' checking file getting loaded from src folder')
+                gitUtils(pipelineParams.sourceRepoURL)
+                script{
+                    logUtils.info(' checking code re-usability')    
+                }
+                
             }
         }
     }
