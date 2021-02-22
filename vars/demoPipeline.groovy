@@ -20,7 +20,7 @@ def call(body) {
                 //gitUtils('https://github.com/sinhasonalkumar/microservices.git')
                 //gitUtils(pipelineParams.sourceRepoURL)
                  script{
-                     //buildUtils.mavenBuild(' clean package')
+                     buildUtils.mavenBuild(' clean package')
                  }    
 
             }
@@ -30,7 +30,7 @@ def call(body) {
             
             steps{
                 script{
-                    logUtils.info(' successfully executed pipeline')    
+                    logUtils.info(' successfully executed pipeline')     
                 }
             }
         }
