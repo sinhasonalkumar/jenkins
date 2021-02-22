@@ -11,15 +11,19 @@ def call(body) {
 
     stages{
         
-        stage("checkout"){
+        stage("Maven Build"){
             
             steps{
                 //gitUtils('https://github.com/sinhasonalkumar/microservices.git')
-                gitUtils(pipelineParams.sourceRepoURL)
+                //gitUtils(pipelineParams.sourceRepoURL)
+                 script{
+                     buildUtils.mavenBuild(' clean package')
+                 }    
+
             }
         }
 
-        stage("log"){
+        stage("Log"){
             
             steps{
                 script{
