@@ -10,12 +10,22 @@ def call(body) {
     def pipelineParams= [:]
     
     node {
-        
+
+      /*  
         stage("Maven Build"){
              buildUtils.mavenBuild(' clean package')
         }
 
         stage("Log"){
+            logUtils.info("Testing Scripted Pipeline")
+        }
+        */
+
+        withStage("Maven Build") {
+            buildUtils.mavenBuild(' clean package')
+        }
+
+        withStage("Log") {
             logUtils.info("Testing Scripted Pipeline")
         }
     }

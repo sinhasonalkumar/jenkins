@@ -1,5 +1,5 @@
-def call(var stageName, Closure closure){
+def call(String stageName, Closure closure){
     stage(stageName){
-        return closure.call()
+       return closure.call()
     }
 }
