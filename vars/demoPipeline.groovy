@@ -19,8 +19,9 @@ def call(body) {
             
             steps{
                 //gitUtils('https://github.com/sinhasonalkumar/microservices.git')
-                gitUtils(pipelineParams.sourceRepoURL)
-                libraries('shared-library').com.sonal.jenkins.logUntils.info(" loading files from src folder")
+                //gitUtils(pipelineParams.sourceRepoURL)
+                def logger = new Logger()
+                logger.info(' checking file getting loaded from src folder')
             }
         }
     }
