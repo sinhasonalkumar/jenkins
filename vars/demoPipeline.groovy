@@ -1,3 +1,5 @@
+import com.sonal.jenkins.GitUtils
+import com.sonal.jenkins.BuildUtils
 import com.sonal.jenkins.LogUtils
 
 def call(body) {
