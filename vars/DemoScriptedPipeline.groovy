@@ -11,6 +11,9 @@ def call(body) {
     
     node(any) {
         
-        logUtils.info("Testing Declarative Pipeline")
+        stage{
+            logUtils.info("Testing Declarative Pipeline")
+        }
+        
     }
 }
