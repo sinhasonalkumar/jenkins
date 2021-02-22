@@ -25,7 +25,7 @@ def call(body) {
         */
 
         withStage("Git Checkout") {
-            gitUtils.checkout(pipelineParams.sourceRepoURL)
+            gitUtils.checkout(pipelineParams.branchName, pipelineParams.sourceRepoURL)
         }
 
         withStage("Maven Build") {
